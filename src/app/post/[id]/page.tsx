@@ -1,9 +1,8 @@
 "use client"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowLeft, User } from "lucide-react"
-import { notFound } from "next/navigation"
+import { ArrowLeft } from "lucide-react"
+import { useParams } from "next/navigation"
 import { useQuery } from "@tanstack/react-query"
 import { Post } from "@/types/post.types"
 import { PostContent } from "@/components/custom/PostContent/PostContent"
@@ -11,13 +10,8 @@ import { DataLoading } from "@/components/custom/DataLoading/DataLoading"
 
 
 
-interface PostPageProps {
-  params: {
-    id: string
-  }
-}
-
-export default function PostPage({ params }: PostPageProps) {
+export default function PostPage() {
+  const params = useParams()
   const { data, isLoading, isSuccess } = useQuery<Post>({
     queryKey: ["getPosts"],
     queryFn: async () => {

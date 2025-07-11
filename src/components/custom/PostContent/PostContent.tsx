@@ -13,7 +13,7 @@ export const PostContent = ({ post }: { post: Post }) => {
                 </CardTitle>
                 <div className="flex items-center gap-2 text-muted-foreground">
                     <User className="w-4 h-4" />
-                    <span>Автор: {post?.title}</span>
+                    <span>Автор: {post.userId}</span>
                 </div>
             </CardHeader>
             <CardContent>
